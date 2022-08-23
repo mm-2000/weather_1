@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<a class="btn btn-lg btn-primary m-3" href="{{ path('app_homepage') }}">Back To Map</a>
+
+<table class="table">
+    <tr>
+        <th>
+            Minimal Temperature
+        </th>
+        <td>
+            {{ tempMin }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Maximal Temperature
+        </th>
+        <td>
+            {{ tempMax }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Average Temperatue
+        </th>
+        <td>
+            {{ tempAvg }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Top Checking City
+        </th>
+        <td>
+            {{ topCity }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            All checking
+        </th>
+        <td>
+            {{ countRows }}
+        </td>
+    </tr>
+
+</table>
+
+
+
+<table class="table" id="table">
+    <thead>
+        <tr>
+            <th>Place</th>
+            <th>Time</th>
+            <th>Temperature</th>
+            <th>Min Temperature</th>
+            <th>Max Temperature</th>
+            <th>Clouds</th>
+            <th>Wind Speed</th>
+            <th>Description</th> 
+        </tr>
+    </thead>
+    <tbody>
+        {% for weather in weathers %}
+        <tr>
+            <td>{{ weather.city }}</td>
+            <td>{{ weather.createTime | date('d.m.Y H:i:s') }}</td>
+            <td>{{ weather.temp }}</td>
+            <td>{{ weather.tempMin }}</td>
+            <td>{{ weather.tempMax }}</td>
+            <td>{{ weather.clouds }}</td>
+            <td>{{ weather.wind }}</td>
+            <td>{{ weather.description }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+<script src="/js/fancyTable.min.js"></script>  
+<script src="/js/table.js"></script>  
+
+
+
+</table>
+
+
+
+{% endblock %}

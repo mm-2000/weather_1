@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="alert alert-primary">
+
+
+        <h1>Homepage</h1>
+        <a href="{{ path('app_table') }}" class="btn btn-lg btn-primary">History Table</a>
+    </div>
+
+<div id="map"></div>
+
+
+
+<script src="/js/homepage.js"></script> 
+<script
+    src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    defer
+></script>
+
+
+{% endblock %}
